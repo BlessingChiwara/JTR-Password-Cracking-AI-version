@@ -46,4 +46,5 @@ Loaded it into John (format: PDF [MD5 SHA2 RC4/AES 32/64], revision 4).
 Ran a dictionary attack against rockyou.txt.
 Successfully cracked the password: password1.
 ![](Screenshot_2026-11-19_13-36-26.png)
+![](flag1.PNG)
 
