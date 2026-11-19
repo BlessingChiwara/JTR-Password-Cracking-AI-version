@@ -14,61 +14,36 @@ Exploit Research Integration: The AI can browse resources like Exploit-DB to gat
  **Walkthrough & Demonstrations**
 1. Server Initialization
 The HexStrike AI server is started via the Python virtual environment. It initializes worker processes and starts the Flask/WSGI server on port 8888.
-
-https://i.imgur.com/your-image-link-1.png
+![](Screenshot_2026-11-18_21_54_53.png)
+![](Screenshot_2026-11-18_21_55_56.png)
 Terminal showing the HexStrike AI server booting up and listening on 127.0.0.1:8888.
 
 2. Connecting the AI (MCP Configuration)
 In the AI client's settings, the MCP server is configured to point to the local HexStrike execution script. The status shows as "Running".
-
-https://i.imgur.com/your-image-link-2.png
+![](Screenshot_2026-11-19_11_54_38.png)
 Configuring the local MCP server in the desktop app settings.
 
 3. Automated Health Checks & Reporting
 When prompted, the AI queries the HexStrike server API to generate a comprehensive health check. It pulls metrics such as CPU usage, memory usage, cache hits, and a complete inventory of installed vs. missing offensive tools.
-
-https://i.imgur.com/your-image-link-3.png
-The AI generated an .xlsx file detailing server health metrics and tool availability.
+![](Screenshot_2026-11-19_12_00_13.png)
+![](Screenshot_2026-11-19_12_00_49.png)
 
 4. Verifying Tooling (John the Ripper)
 Before running an attack, the AI verified the presence and specific build of John the Ripper on the underlying system.
-
-Prompt: "Check if John the Ripper is installed in this Hexstrike MCP and show me its version."
-
-Response:
-
-John the Ripper is installed on your Hexstrike server.
-
-Version: 1.9.0-jumbo-1+bleeding-aec1328d6c, built 2021-11-02
-
-Location: /usr/sbin/john
-
-Build: linux-gnu 64-bit x86_64...
-
-https://i.imgur.com/your-image-link-4.png
+![](Screenshot_2026-11-19_13_16_10.png)
 
 5. File Hashing & Analysis
 Next, we asked the AI to calculate the cryptographic hashes of a locked PDF file to verify its integrity and prepare it for password cracking.
 
-Prompt: "Calculate the hash value of this PDF file: /home/blessing/Desktop/My Locked PDF1...pdf"
-
-The AI successfully returned the MD5, SHA-1, and SHA-256 hashes.
-
-https://i.imgur.com/your-image-link-5.png
-
+![](Screenshot_2026-11-19_13-28-58.png)
 6. Automated Password Cracking (JTR & Rockyou)
 Finally, we instructed the AI to use John the Ripper to crack the PDF's password using the standard rockyou.txt wordlist.
+![](Screenshot_2026-11-19_13-36-26.png)
 
-Prompt: "Use JTR tool in this hexstrike MCP server to crack the password of this PDF file. Use the rockyou.txt wordlist dictionary."
-
-Steps taken by AI:
-
+Steps taken by AI
 Extracted the PDF's crackable hash using pdf2john.
-
 Loaded it into John (format: PDF [MD5 SHA2 RC4/AES 32/64], revision 4).
-
 Ran a dictionary attack against rockyou.txt.
-
 Successfully cracked the password: password1.
+![](Screenshot_2026-11-19_13-36-26.png)
 
-https://i.imgur.com/your-image-link-6.png
